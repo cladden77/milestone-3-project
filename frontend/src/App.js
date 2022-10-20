@@ -1,5 +1,7 @@
-import Login from "./Login";
-import SignUp from "./SignUp";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
