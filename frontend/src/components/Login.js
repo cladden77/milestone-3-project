@@ -3,8 +3,33 @@ import "../css/Login.css";
 import password_hide from "../Images/password-hide.png";
 import password_show from "../Images/password-show.png";
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
 const Login = () => {
+  const [user, setUser] = useState({ name: "", email: "", password: "" });
+  const [err, setErr] = useState("");
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+    setErr("");
+  };
+
+  const registerSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("/user/register", {
+        username: user.name,
+        email: user.email,
+        password: user.password,
+      })
+      setUser({name: '', email: '', password: ''})
+      setErr(res.data.msg)
+    } catch (err) {
+      err.response.data.msg && setErr(err.response.data.msg);
+    }
+  };
+
   const [passwordView, setPasswordView] = useState(false);
 
   const changeView = () => {
@@ -25,7 +50,7 @@ const Login = () => {
                 <br />
                 For Free!
               </p>
-              <a href="https://google.com" className="btn">
+              <a href="SignUp.js" className="btn">
                 Sign Up
               </a>
             </div>
@@ -34,12 +59,18 @@ const Login = () => {
           <div className="col-right">
             <div className="login-form">
               <h2>Login</h2>
-              <form>
+              <form onSubmit={registerSubmit}>
                 <p>
                   <label>
                     Username/Email address<span>*</span>
                   </label>
-                  <input type="text" placeholder="Username or Email" required />
+                  <input
+                    type="text"
+                    placeholder="Username or Email"
+                    required
+                    value={user.email}
+                    onChange={onChangeInput}
+                  />
                 </p>
                 <p>
                   <label>
@@ -50,6 +81,8 @@ const Login = () => {
                       type={passwordView ? "text" : "password"}
                       placeholder="Password"
                       required
+                      value={user.password}
+                      onChange={onChangeInput}
                     />
                     <img
                       onClick={changeView}
@@ -60,6 +93,7 @@ const Login = () => {
                 <p>
                   <input type="submit" value="Sign In" />
                 </p>
+                <h3>{err}</h3>
               </form>
             </div>
           </div>
