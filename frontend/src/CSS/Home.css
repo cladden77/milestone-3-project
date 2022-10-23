@@ -42,6 +42,7 @@ body{
     border-bottom: 5px solid #D55534;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 
 .home nav h1{
@@ -91,6 +92,7 @@ body{
 }
 
 .note{
+    top:0;
     background-color: rgb(131, 207, 255);
     width: 300px;
     margin: 20px 40px;
@@ -99,6 +101,11 @@ body{
     border-radius: 10px;
     /* border: 1px solid black;  */
     box-shadow: 0 0 10px #818181;
+    transition: 1s;
+}
+
+.note:hover{
+    scale: 1.3;
 }
 
 .note::-webkit-scrollbar { width: 0 !important }
