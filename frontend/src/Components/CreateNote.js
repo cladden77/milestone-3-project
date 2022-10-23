@@ -2,7 +2,7 @@ import "../CSS/CreateNote.css";
 import { useState, useEffect } from "react";
 
 function CreateNote(props) {
-  var [active, setActive] = useState("1");
+  var [active, setActive] = useState("pickOne");
 
   return (
     <div className="createNote">
@@ -17,7 +17,7 @@ function CreateNote(props) {
         </p>
         <h2>Create your note</h2>
         <form>
-          <input type="text" placeholder="Enter your title..." />
+          <textarea rows="120">Enter your note text...</textarea>
           <input type="text" placeholder="Enter your note text..." />
           <div className="bottom">
             <div className="colors">
@@ -67,7 +67,7 @@ function CreateNote(props) {
                 }}
               ></div>
             </div>
-            <input type="submit" value="add" />
+            <input type="submit" value="Create" />
           </div>
         </form>
       </div>
