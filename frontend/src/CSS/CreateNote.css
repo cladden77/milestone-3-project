@@ -19,6 +19,16 @@
     border-bottom: 2px solid rgb(98, 98, 98);
 }
 
+textarea{
+    height: 5vh;
+    resize: none;
+}
+
+
+textarea::-webkit-scrollbar { width: 0 !important }
+textarea { overflow: -moz-scrollbars-none; }
+textarea { -ms-overflow-style: none; }
+
 .createNote input:focus{
     width: 100%;
     outline: none;
@@ -103,4 +113,8 @@ margin: 0 10px 0 10px;
 .createNote input[type=submit]:hover{
     color: #ffffff;
     box-shadow: inset 250px 0 0 0 #334747;
+}
+
+#top{
+    height:0
 }

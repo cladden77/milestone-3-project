@@ -17,8 +17,8 @@ function CreateNote(props) {
         </p>
         <h2>Create your note</h2>
         <form>
-          <textarea rows="120">Enter your note text...</textarea>
-          <input type="text" placeholder="Enter your note text..." />
+          <input type="text" placeholder="Enter your title..." />
+          <textarea placeholder="Enter note text..." />
           <div className="bottom">
             <div className="colors">
               {/* Color */}
