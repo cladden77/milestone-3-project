@@ -207,3 +207,47 @@ a{
 #top{
     height: 0;
 }
+
+.home .delete{
+    background-color: red;
+    border-radius: 50%;
+    height: 30px;
+    width:30px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    margin: -30px 0 -30px 5px;
+    opacity: .5;
+}
+.note:hover .delete{
+    position: sticky;
+    top: 2%;
+    display: flex;
+}
+
+.home .edit{
+    background-color: red;
+    border-radius: 50%;
+    height: 30px;
+    width:30px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    opacity: .5;
+}
+
+.edit a, .delete a{
+    color: black;
+    text-decoration: none;
+}
+
+.note:hover .edit{
+    position: sticky;
+    top: 230px;
+    left: 88%;
+    display: flex
+}
+
+.home .edit{
+    color: blanchedalmond
+}

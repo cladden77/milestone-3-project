@@ -2,7 +2,7 @@ import "../CSS/Home.css";
 import upArrow from "../Images/up-arrow.png";
 import CreateNote from "./CreateNote";
 import { useState, useEffect } from "react";
-
+import Logout from "./Logout";
 function Home() {
   var [createNote, setCreateNote] = useState(false);
 
@@ -30,6 +30,7 @@ function Home() {
             Soft<span>Notes</span>
           </h1>
           <p>Sort</p>
+          <Logout />
         </nav>
         {createNote && <CreateNote setCreateNote={setCreateNote} />}
         <div className="searchBar">
@@ -37,6 +38,12 @@ function Home() {
         </div>
         <div className="notesContainer">
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -51,6 +58,12 @@ function Home() {
             </h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -66,6 +79,12 @@ function Home() {
             </h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -75,12 +94,24 @@ function Home() {
             </h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
             <h3 className="text">Nulla at volutpat diam ut venenatis tellus</h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -97,6 +128,12 @@ function Home() {
             </h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -105,18 +142,36 @@ function Home() {
             </h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
             <h3 className="text">Ut consequat</h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
             <h3 className="text">Tempor orci eu lobortis</h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -132,6 +187,12 @@ function Home() {
             </h3>
           </div>
           <div className="note">
+            <div className="delete">
+              <a href="https://google.com">X</a>
+            </div>
+            <div className="edit">
+              <a href="https://google.com">Edit</a>
+            </div>
             <p className="date">Date</p>
             <h2 className="title">Title</h2>
             <p className="catagory">Catagory</p>
@@ -139,42 +200,6 @@ function Home() {
               Cursus mattis molestie a iaculis at erat pellentesque adipiscing
               commodo. Dolor sit amet consectetur adipiscing.
             </h3>
-          </div>
-          <div className="note">
-            <p className="date">Date</p>
-            <h2 className="title">Title</h2>
-            <p className="catagory">Catagory</p>
-            <h3 className="text">Nulla at volutpat diam ut venenatis tellus</h3>
-          </div>
-          <div className="note">
-            <p className="date">Date</p>
-            <h2 className="title">Title</h2>
-            <p className="catagory">Catagory</p>
-            <h3 className="text">
-              Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit
-              sed. Pretium viverra suspendisse potenti nullam ac tortor vitae
-              purus faucibus. Augue eget arcu dictum varius. Aenean euismod
-              elementum nisi quis eleifend quam. Mauris pellentesque pulvinar
-              pellentesque habitant morbi tristique senectus et netus. Nec
-              ultrices dui sapien eget mi proin sed. Eu tincidunt tortor aliquam
-              nulla facilisi cras fermentum. Magna fringilla urna porttitor
-              rhoncus dolor. Et netus et malesuada fames ac turpis egestas sed
-              tempus.
-            </h3>
-          </div>
-          <div className="note">
-            <p className="date">Date</p>
-            <h2 className="title">Title</h2>
-            <p className="catagory">Catagory</p>
-            <h3 className="text">
-              Nibh sit amet commodo nulla facilisi nullam vehicula ipsum.
-            </h3>
-          </div>
-          <div className="note">
-            <p className="date">Date</p>
-            <h2 className="title">Title</h2>
-            <p className="catagory">Catagory</p>
-            <h3 className="text">Ut consequat</h3>
           </div>
         </div>
       </div>
