@@ -2,24 +2,13 @@ require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const userRouter = require("../backend/routes/userRouter");
 const noteRouter = require("../backend/routes/noteRouter");
 const path = require("path");
 
 const app = express();
 app.use(express.json());
-
-// initialize cookie-parser to allow us access the cookies stored in the browser.
-// app.use(cookieParser());
-
-// Routes
-app.use("/user", userRouter);
-app.use("/api/notes", noteRouter);
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL, () => {
-  console.log("Connected to MongoDB");
-});
 
 //Cors Configuration - Start
 app.use((req, res, next) => {
@@ -39,7 +28,17 @@ app.use((req, res, next) => {
 })
 //Cors Configuration - End
 
-//app.use(cors());
+// initialize cookie-parser to allow us access the cookies stored in the browser.
+// app.use(cookieParser());
+
+// Routes
+app.use("/user", userRouter);
+app.use("/api/notes", noteRouter);
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URL, () => {
+  console.log("Connected to MongoDB");
+});
 
 //Heroku attachment
 
