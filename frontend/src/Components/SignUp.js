@@ -11,6 +11,10 @@ function SignUp(props) {
   const [passwordView, setPasswordView] = useState(false);
   const [confirmPasswordView, setConfirmPasswordView] = useState(false);
 
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -39,6 +43,14 @@ function SignUp(props) {
   const changeConfirmView = () => {
     setConfirmPasswordView(!confirmPasswordView);
   };
+
+  useEffect(() => {
+    if (passwordConfirm !== user.password) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  }, [passwordConfirm, user.password]);
 
   return (
     <div>
@@ -143,12 +155,17 @@ function SignUp(props) {
                       src={confirmPasswordView ? password_hide : password_show}
                     />
                   </div>
+                  {isDisabled && (
+                    <p className="test">
+                      Please make sure your passwords are the same
+                    </p>
+                  )}
                 </div>
                 <label className="back-to-login">
                   <a href="/">Have an account? Login Now</a>
                 </label>
                 <div className="submit">
-                  <input type="submit" value="Submit" />
+                  <input type="submit" value="Submit" disabled={isDisabled} />
                 </div>
                 <h3>{err}</h3>
               </form>

@@ -175,6 +175,7 @@ body{
 }
 
 .input #password img{
-    width: 5%;
+    width: 30px;
+    margin: -30px
 }
 
