@@ -35,7 +35,12 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-  
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Request-Method", "*")
+  next();
+});
 
 // Listen for Connections
 const PORT = process.env.PORT || 3001;
