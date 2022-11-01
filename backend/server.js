@@ -29,6 +29,7 @@ mongoose.connect(process.env.MONGO_URL, () => {
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
+  app.use(express.static('public'));
   app.get("*", (req, res) => {
   const index = path.join(__dirname , "../frontend/build", "index.html");
   res.sendFile(index);
