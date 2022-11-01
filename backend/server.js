@@ -5,8 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const userRouter = require("../backend/routes/userRouter");
 const noteRouter = require("../backend/routes/noteRouter");
-// const cookieParser = require('cookie-parser');
-// const auth = require('./middleware/auth');
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -21,16 +20,8 @@ app.use(cors());
 app.use("/user", userRouter);
 app.use("/api/notes", noteRouter);
 
-//logout user
-// app.get('/api/logout',auth,function(req,res){
-
-// res.clearCookie()
-// req.session.destroy();
-// res.sendStatus(200);
-// }); 
-
 // Listen for Connections
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("Listening on Port", PORT);
 });
@@ -39,3 +30,12 @@ app.listen(PORT, () => {
 mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connected to MongoDB");
 });
+
+//Heroku attachment
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
