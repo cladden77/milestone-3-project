@@ -1,4 +1,4 @@
-require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: '.env' });
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -20,12 +20,6 @@ app.use(cors());
 app.use("/user", userRouter);
 app.use("/api/notes", noteRouter);
 
-// Listen for Connections
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log("Listening on Port", PORT);
-});
-
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connected to MongoDB");
@@ -39,3 +33,9 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
+
+// Listen for Connections
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log("Listening on Port", PORT);
+});
