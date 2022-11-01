@@ -29,7 +29,7 @@ export default function EditNote({ match }) {
         console.log(res);
         setNote({
           title: res.data.title,
-          content: res.data.title,
+          content: res.data.content,
           id: res.data._id,
         });
         setActiveColor(`${res.data.color}`);
