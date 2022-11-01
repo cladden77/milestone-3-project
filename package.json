@@ -28,7 +28,7 @@
         "mongoose": "^6.7.0",
         "nodemon": "^2.0.20"
     },
-    "permissions": [
-
-    ]
+    "engines": {
+        "node": "v15.14.0"
+    }
 }
