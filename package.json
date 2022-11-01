@@ -4,29 +4,29 @@
     "description": "\"project-3\"",
     "main": "server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "nodemon --watch backend --exec node backend/server.js",
-      "server": "nodemon backend/server.js",
-      "client": "npm start --prefix frontend",
-      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend && npm install --only=dev && npm install && npm run build"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --watch backend --exec node backend/server.js",
+        "server": "nodemon backend/server.js",
+        "client": "npm start --prefix frontend",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend && npm install && npm run build"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/cladden77/milestone-3-project.git"
+        "type": "git",
+        "url": "git+https://github.com/cladden77/milestone-3-project.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/cladden77/milestone-3-project/issues"
+        "url": "https://github.com/cladden77/milestone-3-project/issues"
     },
     "homepage": "https://github.com/cladden77/milestone-3-project#readme",
     "dependencies": {
-      "bcrypt": "^5.1.0",
-      "cors": "^2.8.5",
-      "dotenv": "^16.0.3",
-      "express": "^4.18.2",
-      "jsonwebtoken": "^8.5.1",
-      "mongoose": "^6.7.0",
-      "nodemon": "^2.0.20"
+        "bcrypt": "^5.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.7.0",
+        "nodemon": "^2.0.20"
     }
-  }
+}
