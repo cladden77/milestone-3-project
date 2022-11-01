@@ -25,6 +25,13 @@ mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connected to MongoDB");
 });
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Request-Method", "*")
+  next();
+});
+
 //Heroku attachment
 
 if (process.env.NODE_ENV === "production") {
@@ -34,13 +41,6 @@ if (process.env.NODE_ENV === "production") {
       res.sendFile('index.html', { root });
   });
 }
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Request-Method", "*")
-  next();
-});
 
 // Listen for Connections
 const PORT = process.env.PORT || 3001;
