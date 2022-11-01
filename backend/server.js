@@ -33,8 +33,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
 });
   res.sendFile(index);
-  });
-}
+  }
 
 // Listen for Connections
 const PORT = process.env.PORT || 3001;
