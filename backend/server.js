@@ -10,7 +10,12 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 
-
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Request-Method", "*")
+  next();
+});
 app.use(cors());
 
 // initialize cookie-parser to allow us access the cookies stored in the browser.
@@ -23,13 +28,6 @@ app.use("/api/notes", noteRouter);
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connected to MongoDB");
-});
-
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Request-Method", "*")
-  next();
 });
 
 //Heroku attachment
