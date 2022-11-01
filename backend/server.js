@@ -31,8 +31,8 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static('public'));
   app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
-});
-  res.sendFile(index);
+    res.sendFile(index);
+    });
   }
 
 // Listen for Connections
