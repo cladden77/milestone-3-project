@@ -8,7 +8,7 @@
         "start": "nodemon --watch backend --exec node backend/server.js",
         "server": "nodemon backend/server.js",
         "client": "npm start --prefix frontend",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend npm install --only=dev && npm install && npm run build"
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd app && cd frontend && npm install --only=dev && npm install && npm run build"
     },
     "repository": {
         "type": "git",
@@ -27,5 +27,8 @@
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.7.0",
         "nodemon": "^2.0.20"
-    }
+    },
+    "permissions": [
+
+    ]
 }
