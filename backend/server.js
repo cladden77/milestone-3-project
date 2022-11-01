@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const userRouter = require("../backend/routes/userRouter");
 const noteRouter = require("../backend/routes/noteRouter");
 const path = require("path");
@@ -22,15 +21,25 @@ mongoose.connect(process.env.MONGO_URL, () => {
   console.log("Connected to MongoDB");
 });
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", '*');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-  next();
-});
+//Cors Configuration - Start
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested, Content-Type, Accept Authorization"
+  )
+  if (req.method === "OPTIONS") {
+    res.header(
+      "Access-Control-Allow-Methods",
+      "POST, PUT, PATCH, GET, DELETE"
+    )
+    return res.status(200).json({})
+  }
+  next()
+})
+//Cors Configuration - End
 
-app.use(cors());
+//app.use(cors());
 
 //Heroku attachment
 
