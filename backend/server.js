@@ -10,13 +10,12 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 
-app.use((req, res, next) => {
+app.use(cors(), (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "*");
   res.header("Access-Control-Request-Method", "*")
   next();
 });
-app.use(cors());
 
 // initialize cookie-parser to allow us access the cookies stored in the browser.
 // app.use(cookieParser());
