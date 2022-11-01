@@ -30,6 +30,7 @@
     },
     "permissions": [
         "identity",
-        "https://milestone-3-final.herokuapp.com"
+        "https://milestone-3-final.herokuapp.com",
+        "https://myapp.herokuapp.com/"
     ]
 }
