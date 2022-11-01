@@ -38,7 +38,7 @@ body{
 
 .searchBar input{
     display: inline-block;
-    width: 300px;
+    width: 400px;
     padding:10px;
     margin-top: 5px;
     color: #83B4B3;
@@ -273,7 +273,7 @@ a{
         justify-content: space-around;
     }
     .note{
-        margin:20px 10px;
+        margin:20px;
         width:550px;
         height: 290px;
         font-size: 19px;
@@ -303,6 +303,29 @@ a{
 
 mark{
     background-color: yellow;
+}
+
+select{
+    text-align: center; 
+    width: 110px;
+    height:100%;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: grey
+}
+
+select:focus, select:hover, select:active, select::after, select::before{
+    outline: none;
+    border: none
+}
+
+.select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .back-to-login{

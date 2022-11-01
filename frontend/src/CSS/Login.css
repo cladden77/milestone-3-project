@@ -211,7 +211,8 @@ body{
     align-items: center;
 }
 #password img{
-    width: 10%;
+    width: 30px;
+    margin: -30px
 }
 
 .title{

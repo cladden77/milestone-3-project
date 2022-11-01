@@ -10,6 +10,7 @@ export default function Home(props) {
   const [notes, setNotes] = useState([]);
   const [token, setToken] = useState("");
   const [createNote, setCreateNote] = useState(false);
+  const [myCategory, setMyCategory] = useState("All");
 
   const getNotes = async (token) => {
     const res = await axios.get("/api/notes", {
@@ -53,6 +54,23 @@ export default function Home(props) {
     }
   };
 
+  const categorySearch = () => {
+    let getCategories = document.getElementsByClassName("category");
+    for (var i = 0; i < getCategories.length; i++) {
+      if (myCategory === "All") {
+        getCategories[i].parentNode.style.display = "";
+      } else if (getCategories[i].innerHTML !== myCategory) {
+        getCategories[i].parentNode.style.display = "none";
+      } else {
+        getCategories[i].parentNode.style.display = "";
+      }
+    }
+  };
+
+  useEffect(() => {
+    categorySearch();
+  }, [myCategory]);
+
   return (
     <div className="homeWrapper">
       <div className={`homeContainer home ${props.colorTheme}`}>
@@ -76,6 +94,22 @@ export default function Home(props) {
             placeholder="search..."
             onChange={search}
           />
+        </div>
+        <div className="select">
+          <select
+            onChange={(event) => {
+              setMyCategory(event.target.value);
+            }}
+            id="select-category"
+          >
+            <option value="All">All</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Home">Home</option>
+            <option value="Goal">Goal</option>
+            <option value="Reminder">Reminder</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <div className={`notesContainer`}>
           {notes.map((note) => (
