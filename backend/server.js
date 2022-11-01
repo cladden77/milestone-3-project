@@ -28,11 +28,13 @@ mongoose.connect(process.env.MONGO_URL, () => {
 //Heroku attachment
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static('public'));
-  app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname, "..", '/frontend/build/index.html'));
-    });
-  }
+  const root = require('path').join(__dirname, 'frontend', 'build')
+  app.use(express.static(root));
+  app.get("*", (req, res) => {
+      res.sendFile('index.html', { root });
+  })
+
+  
 
 // Listen for Connections
 const PORT = process.env.PORT || 3001;
