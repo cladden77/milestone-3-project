@@ -5,6 +5,7 @@ import "../CSS/CreateNote.css";
 import "../CSS/Animation.css";
 
 export default function EditNote({ match }) {
+  const date = new Date();
   const [activeColor, setActiveColor] = useState("colorOne");
   const [activeCategory, setActiveCategory] = useState("other");
   const params = useParams();
@@ -14,6 +15,7 @@ export default function EditNote({ match }) {
     color: "",
     category: "",
     id: "",
+    date: `${date.toString().slice(0, 15)}`,
   });
   const history = useNavigate();
 
