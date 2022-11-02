@@ -129,7 +129,7 @@ export default function Home(props) {
                   <img src={Edit} alt="Edit button" />
                 </Link>
               </div>
-              <p className="date">{note.updatedAt.slice(0, 10)}</p>
+              <p className="date">{note.date}</p>
               <h2 className="title" title={note.title}>
                 {note.title}
               </h2>

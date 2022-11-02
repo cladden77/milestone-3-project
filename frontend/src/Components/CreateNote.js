@@ -13,6 +13,7 @@ export default function CreateNote(props) {
     content: "",
     color: `${activeColor}`,
     category: `${activeCategory}`,
+    date: `${date.toString().slice(0, 15)}`,
   });
 
   const history = useNavigate();
@@ -27,12 +28,13 @@ export default function CreateNote(props) {
     try {
       const token = localStorage.getItem("tokenStore");
       if (token) {
-        const { title, content, color, category } = note;
+        const { title, content, color, category, date } = note;
         const newNote = {
           title,
           content,
           color,
           category,
+          date,
         };
 
         await axios.post("/api/notes", newNote, {

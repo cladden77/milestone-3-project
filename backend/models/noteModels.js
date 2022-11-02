@@ -18,6 +18,10 @@ const noteSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    date: {
+      type: String,
+      required: false,
+    },
     user_id: {
       type: String,
       required: true,
