@@ -25,7 +25,7 @@ function Nav(props) {
       <a className="bottomButton" href="#bottom">
         <img alt="button to bottom" src={downArrow} />
       </a>
-      <h1 className="title">
+      <h1>
         Soft<span>Notes</span>
       </h1>
       <div class="container">
