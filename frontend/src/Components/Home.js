@@ -22,11 +22,16 @@ export default function Home(props) {
   function search() {
     let textToSearch = document.getElementById("search").value;
     let paragraph = document.getElementsByClassName("text");
+    let title = document.getElementsByClassName("title");
     textToSearch = textToSearch.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     let pattern = new RegExp(`${textToSearch}`, "gi");
 
     for (var i = 0; i < paragraph.length; i++) {
       paragraph[i].innerHTML = paragraph[i].textContent.replace(
+        pattern,
+        (match) => `<mark>${match}</mark>`
+      );
+      title[i].innerHTML = title[i].textContent.replace(
         pattern,
         (match) => `<mark>${match}</mark>`
       );
@@ -93,10 +98,12 @@ export default function Home(props) {
             type="text"
             placeholder="search..."
             onChange={search}
+            autoComplete="off"
           />
         </div>
         <div className="select">
           <select
+            value={myCategory}
             onChange={(event) => {
               setMyCategory(event.target.value);
             }}
@@ -126,7 +133,15 @@ export default function Home(props) {
               <h2 className="title" title={note.title}>
                 {note.title}
               </h2>
-              <h4 className="category">{note.category}</h4>
+              <h4
+                className="category"
+                onClick={() => {
+                  setMyCategory(note.category);
+                  categorySearch();
+                }}
+              >
+                {note.category}
+              </h4>
               <div>
                 <h3 className="text">{note.content}</h3>
               </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import Delete from "../Images/delete.png";
 import "../CSS/CreateNote.css";
 import "../CSS/Animation.css";
 

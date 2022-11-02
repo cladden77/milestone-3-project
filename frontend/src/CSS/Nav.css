@@ -41,12 +41,13 @@ nav img:hover{
     border-radius: 50%;
 }
 
-.title{
+.nav{
     font-family: poppins;
-    color: #097392
+    color: #097392;
+    cursor: default;
 }
 
-.title span{
+.nav span{
     color: #D55534
 }
 

@@ -5,6 +5,7 @@ import Delete from "../Images/delete.png";
 import "../CSS/CreateNote.css";
 
 export default function CreateNote(props) {
+  const date = new Date();
   const [activeColor, setActiveColor] = useState("colorOne");
   const [activeCategory, setActiveCategory] = useState("Other");
   const [note, setNote] = useState({
@@ -46,6 +47,7 @@ export default function CreateNote(props) {
   };
 
   useEffect(() => {
+    console.log(date);
     setNote({
       ...note,
       category: `${activeCategory}`,

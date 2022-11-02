@@ -148,6 +148,9 @@ function SignUp(props) {
                       placeholder="Password"
                       required
                       autoComplete="true"
+                      onChange={(e) => {
+                        setPasswordConfirm(e.target.value);
+                      }}
                     />
                     <img
                       alt="password show"
